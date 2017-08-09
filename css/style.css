@@ -1,0 +1,14 @@
+body {
+    background-color: #474949;
+}
+
+#title {
+    color: white;
+}
+
+.preserve-whitespace {
+    display: block;
+    unicode-bidi: embed;
+    font-family: monospace;
+    white-space: pre;
+}
