@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>George Pantazes Resume.json</title>
+    <meta name="viewport" content="width=device-width">
+    <title>George Pantazes Resume.json</title>
 	<link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" title="Rainbow" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css">
@@ -18,23 +19,92 @@
 
 <body>
 
-    <h1 id="title"><code>George Pantazes Resume.json</code></h1>
-<pre><code>{
+    <header>
+        <h1 id="code-title"><code>George Pantazes Resume.json</code></h1>
+        <code><a class="nav-link" href="https://github.com/gwpantazes">gwpantazes on Github</a></code>
+    </header>
+
+    <div class="large-code-block"><pre><code>{
     "name": "George Pantazes",
-    "work experience": [
-        {
-            "jobtitle": "Software Development Engineer in Test",
-            "company": "Beta Breakers",
-            "startDate": "2016-07-25T18:25:22.199Z",
-            "endDate": "<span id="present-date"></span>"
-        },
-        {
-            "jobtitle": "Quality Assurance Engineer",
-            "company": "Beta Breakers",
-            "startDate": "2016-03-24T19:35:10.859Z",
-            "endDate": "2016-07-25T18:25:22.198Z"
-        },
-    ],
+    "shortBio": "Software engineer with a bad sense of humor who thought it would be funny to write his resume in JSON",
+    "mission": "To pursue knowledge in order to better use technology to solve real issues",
+    "careerObjective": "Continue to gain real industry experience and pursue further theoretical software engineering foundations, aiming for future senior roles",
+    "education": {
+        "degree": "Bachelor's of Science",
+        "major": "Computer Science",
+        "minor": "Music",
+        "institutionName": "University of California Davis"
+    }
+    "experience": {
+        "work experience": [
+            {
+                "jobtitle": "Software Development Engineer in Test",
+                "company": "Beta Breakers",
+                "startDate": "2016-07-25",
+                "endDate": "<span id="present-date"></span>",
+                "duties": [
+                    "Designed quality assurance tools and automated acceptance test suites",
+                    "Set up continuous integration and automated testing",
+                    "Exposed bugs early in the development cycle to quicken developer iteration",
+                    "Contributed significant functionality and planning to internal software frameworks",
+                    "Programmed automated tests using Java, Appium, Cucumber, Spring, and Maven",
+                    "Investigated UI elements using adb, UIAutomator, XML, Xpath, and CSS selectors",
+                    "Documented through JavaDocs, markdown readme files, and wiki pages",
+                    "Deployed test suite to Jenkins server for continuous integration and automatic reporting",
+                    "Monitored results and communicated with developers, logging bugs to Jira",
+                    "Collaborated using Git in a code-reviewed pull request workflow",
+                    "Practiced agile methodology by accurately planning sprints with team"
+                ],
+                "accomplishments": [
+                    "Saved hours of manual QA time per automated test suite run",
+                    "Maintained "
+
+                ],
+                "skills": {
+                    "programming": [
+                        "Java",
+                        "bash",
+                        "Python"
+                    ],
+                    "automation": [
+                        "Maven",
+                        "Jenkins"
+                    ],
+                    "frameworks": [
+                        "Spring",
+                        "Cucumber",
+                        "JUnit",
+                        "Appium"
+                    ]
+                }
+            },
+            {
+                "jobtitle": "Quality Assurance Engineer",
+                "company": "Beta Breakers",
+                "startDate": "2016-03-24",
+                "endDate": "2016-07-25",
+    			"duties": [],
+    			"accomplishments": [],
+    			"skills": [
+                    "testing",
+                    "bug writing",
+                    "test writing",
+                    "Jira",
+                    "BugZilla"
+                ]
+            }
+        ],
+        "volunteer experience": [
+            {
+                "title": "AP Computer Science Teacher's Aide",
+                "summary": "Assisted teaching Computer Science and Java programming to high school students.",
+                "location": "Petaluma High School",
+                "skills": []
+                    "teaching"
+                ]
+            }
+        ]
+    },
     "skills": {
         "programming-languages": [
             "Java",
@@ -42,19 +112,46 @@
             "Javascript",
             "Kotlin",
             "Lua",
-
+			"C++",
+			"C"
         ],
         "software-frameworks": [
             "Cucumber",
             "Selenium",
-            "Appium"
+            "Appium",
+            "Spring"
         ]
-
     },
     "projects": [
-
+		{
+			"title": "Python101",
+			"description": "A Python 101 lesson for going from 0 to 100 in programming.",
+			"link": "https://github.com/gwpantazes/python101",
+            "skills": [
+                "Python",
+                "teaching"
+            ]
+		},
+        {
+			"title": "Spirit of the Foreset",
+			"description": "A game about life, death, and forestry.",
+			"link": "https://github.com/gwpantazes/SpiritOfTheForestGame",
+            "skills": [
+                "Java",
+                "LibGDX",
+                "gamedev"
+            ]
+		}
+    ],
+    "interests": [
+        "education",
+        "programming",
+        "open source",
+        "environmental conservation",
+        "storytelling"
     ]
 }</code></pre>
+    </div>
 
     <script type='text/javascript' src='/js/code_highlighting.js'></script>
 </body>
