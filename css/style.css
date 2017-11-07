@@ -12,7 +12,10 @@ header {
     margin-top: 2em;
     margin-right: 3em;
     margin-bottom: 2em;
-    margin-left: 2em;
+    margin-left: 2em
+    float: left;
+    white-space: nowrap;
+
 }
 
 

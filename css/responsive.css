@@ -1,0 +1,54 @@
+.HolyGrail {
+  display: flex;
+  min - height: 400 px;
+  flex - direction: column;
+}
+
+header,
+footer {
+  height: 70 px;
+  background - color: #ccc;
+  padding - top: 30 px;
+  margin - bottom: 10 px;
+}
+
+footer {
+  margin - top: 10 px;
+}.HolyGrail - body {display: flex;
+  flex: 1;}.HolyGrail - content {
+  flex: 1;
+  background - color: gray;
+  min - height: 200 px;
+  padding - top: 50 px;
+  color: white;
+}.HolyGrail - nav,.HolyGrail - right {
+  flex: 0 0 24 %;
+  margin: 0 0 0 1e m;
+  background - color: #532434;
+  color: white;
+  padding - top: 50 px;
+}.HolyGrail - nav {
+  /* put the nav on the left */
+  order: -1;
+  margin: 0 1e m 0 0;
+  background - color: #90C3D4;
+}
+
+@media screen and(max - width : 650 px) {.HolyGrail - body {
+    flex - wrap: wrap
+  }.HolyGrail - right {
+    flex: 0 0 100 %;
+    margin: 10 px 0 0 0;
+  }
+}
+
+@media screen and(max - width : 450 px) {.HolyGrail - body {display: block;}
+  header,
+  footer {
+    height: 30 px;
+    padding - top: 10 px;
+  }.HolyGrail - nav,.HolyGrail - right,.HolyGrail - content {margin: 10 px 0;}.HolyGrail - content {
+    min - height: 100 px;
+  }
+
+}
