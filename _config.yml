@@ -1,1 +1,9 @@
-theme: jekyll-theme-minimal
+
+title: George Pantazes Website
+author:
+  name: George Pantazes
+  email: georgepantazes@gmail.com
+description: > # this means to ignore newlines until "show_excerpts:"
+  Hi, my name is George Pantazes, and this is my personal website.
+
+theme: minima
