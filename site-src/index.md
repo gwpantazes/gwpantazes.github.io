@@ -2,6 +2,10 @@
 layout: home
 ---
 
+Hello there! 👋
+
+Welcome to my website. 😊
+
 <ul>
 {% for member in site.data.members %}
   <li>
