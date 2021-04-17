@@ -1,9 +1,27 @@
 
 title: George Pantazes Website
-author:
-  name: George Pantazes
-  email: georgepantazes@gmail.com
-description: > # this means to ignore newlines until "show_excerpts:"
-  Hi, my name is George Pantazes, and this is my personal website.
+name: George Pantazes
+email: georgepantazes@gmail.com
+description: George Pantazes' personal website, portfolio, and software development blog.
 
-theme: minima
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://gwpantazes.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: georgepantazes
+github_username:  gwpantazes
+
+# Build settings
+source: site-src
+markdown: kramdown
+plugins:
+# Github Pages default plugins
+  - jekyll-coffeescript
+  - jekyll-default-layout
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+  - jekyll-relative-links
+  # More Plugins
+  - jekyll-feed
