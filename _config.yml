@@ -1,8 +1,8 @@
 
-title: George Pantazes Website
+title: Much To Dev About Nothing - George Pantazes Website
 name: George Pantazes
 email: georgepantazes@gmail.com
-description: George Pantazes' personal website, portfolio, and software development blog.
+description: George Pantazes' website, portfolio, and software development blog.
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://gwpantazes.github.io" # the base hostname & protocol for your site, e.g. http://example.com
