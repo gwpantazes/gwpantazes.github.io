@@ -15,7 +15,6 @@ header_pages:
   - about.md
 
 # Build settings
-source: site-src
 markdown: kramdown
 plugins:
 # Github Pages default plugins
