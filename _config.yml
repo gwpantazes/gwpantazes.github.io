@@ -1,5 +1,5 @@
 
-title: Much To Dev About Nothing - George Pantazes Website
+title: Much A Dev About Nothing - George Pantazes Website
 name: George Pantazes
 email: georgepantazes@gmail.com
 description: George Pantazes' website, portfolio, and software development blog.
@@ -10,6 +10,9 @@ twitter_username: georgepantazes
 github_username:  gwpantazes
 hackernews_username: gpantazes
 linkedin_username: georgepantazes
+
+header_pages:
+  - about.md
 
 # Build settings
 source: site-src
