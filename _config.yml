@@ -1,1 +1,32 @@
-theme: jekyll-theme-minimal
+
+title: Much A Dev About Nothing - George Pantazes Website
+name: George Pantazes
+email: georgepantazes@gmail.com
+description: George Pantazes' website, portfolio, and software development blog.
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://gwpantazes.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: georgepantazes
+github_username:  gwpantazes
+hackernews_username: gpantazes
+linkedin_username: georgepantazes
+
+header_pages:
+  - about.md
+
+# Build settings
+source: site-src
+markdown: kramdown
+plugins:
+# Github Pages default plugins
+  - jekyll-coffeescript
+  - jekyll-default-layout
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+  - jekyll-relative-links
+  # More Plugins
+  - jekyll-feed
