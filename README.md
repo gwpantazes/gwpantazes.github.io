@@ -1,2 +1,5 @@
 # gwpantazes.github.io
-Github Pages website for George Pantazes.
+
+[gwpantazes.github.io](https://gwpantazes.github.io).
+
+Personal website for George Pantazes, hosted on Github Pages, built with Jekyll.
