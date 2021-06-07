@@ -39,32 +39,29 @@ but the automatic process cleanup will be essential.
 
 The best practice is to run an `init` on PID 1, rather then letting your "main" program entry point run on PID 1.
 
-The following is an excerpt from [StevenACoffman/Docker Best Practices.md](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5#dont-run-pid-1):
+The following excerpt is from [StevenACoffman/Docker Best Practices.md](https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5#dont-run-pid-1):
 
-<blockquote cite="https://gist.github.com/StevenACoffman/41fee08e8782b411a4a26b9700ad7af5#dont-run-pid-1">
-
-### Don't run PID 1
-
-Use tini or dumb-init (see below for why)
-
-#### Dumb-init or Tini
-
-PID 1 is special in unix, and so omitting an init system often leads to incorrect handling of processes and signals, and can result in problems such as containers which can't be gracefully stopped, or leaking containers which should have been destroyed.
-
-In Linux, processes in a PID namespace form a tree with each process having a parent process. Only one process at the root of the tree doesn't really have a parent. This is the "init" process, which has PID 1.
-
-Processes can start other processes using the fork and exec syscalls. When they do this, the new process' parent is the process that called the fork syscall. fork is used to start another copy of the running process and exec is used to start different process. Each process has an entry in the OS process table. This records info about the process' state and exit code. When a child process has finished running, its process table entry remains until the parent process has retrieved its exit code using the wait syscall. This is called "reaping" zombie processes.
-
-Zombie processes are processes that have stopped running but their process table entry still exists because the parent process hasn't retrieved it via the wait syscall. Technically each process that terminates is a zombie for a very short period of time but they could live for longer.
-
-Something like [tini](https://github.com/krallin/tini) or [dumb-init](https://github.com/Yelp/dumb-init) can be used if you have a process that spawns new processes but doesn't have good signal handlers implemented to catch child signals and stop your child if your process should be stopped etc.
-
-Bash scripts for example do NOT handle and emit signals properly.
-</blockquote>
+> ### Don't run PID 1
+>
+> Use tini or dumb-init (see below for why)
+>
+> #### Dumb-init or Tini
+>
+> PID 1 is special in unix, and so omitting an init system often leads to incorrect handling of processes and signals, and can result in problems such as containers which can't be gracefully stopped, or leaking containers which should have been destroyed.
+>
+> In Linux, processes in a PID namespace form a tree with each process having a parent process. Only one process at the root of the tree doesn't really have a parent. This is the "init" process, which has PID 1.
+>
+> Processes can start other processes using the fork and exec syscalls. When they do this, the new process' parent is the process that called the fork syscall. fork is used to start another copy of the running process and exec is used to start different process. Each process has an entry in the OS process table. This records info about the process' state and exit code. When a child process has finished running, its process table entry remains until the parent process has retrieved its exit code using the wait syscall. This is called "reaping" zombie processes.
+>
+> Zombie processes are processes that have stopped running but their process table entry still exists because the parent process hasn't retrieved it via the wait syscall. Technically each process that terminates is a zombie for a very short period of time but they could live for longer.
+>
+> Something like [tini](https://github.com/krallin/tini) or [dumb-init](https://github.com/Yelp/dumb-init) can be used if you have a process that spawns new processes but doesn't have good signal handlers implemented to catch child signals and stop your child if your process should be stopped etc.
+>
+> Bash scripts for example do NOT handle and emit signals properly.
 
 If you were to run a container with `docker run`, you can supply the `--init` argument to get a basic `init` for your container. But for other situations, the container entrypoint must put an `init` on PID 1 so child processes can be cleaned up.
 
-> NOTE: If you are using Docker 1.13 or greater, Tini is included in Docker itself. This includes all versions of Docker CE. To enable Tini, just pass the `--init` flag to docker run.
+(NB: If you are using Docker 1.13 or greater, Tini is included in Docker itself. This includes all versions of Docker CE. To enable Tini, just pass the `--init` flag to docker run.)
 
 ## Changing the Container Entrypoint To An Init
 
@@ -88,16 +85,12 @@ After we add this to our base image, we can now configure jib to use `/tini` as 
 
 We're still going to use the [Gradle Jib plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-gradle-plugin) to build our docker container. The Gradle Jib plugin has a `container.entrypoint` configuration property.
 
-<blockquote>
-
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `entrypoint` | `List<String>` | None | The command to start the container with (similar to Docker's `ENTRYPOINT` instruction). If set, then `jvmFlags`, `mainClass`, `extraClasspath`, and `expandClasspathDependencies` are ignored. You may also set `jib.container.entrypoint = 'INHERIT'` to indicate that the entrypoint and args should be inherited from the base image.* |
-| `args` | `List<String>` | *None* | Additional program arguments appended to the command to start the container (similar to Docker's [CMD](https://docs.docker.com/engine/reference/builder/#cmd) instruction in relation with [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint)). In the default case where you do not set a custom `entrypoint`, this parameter is effectively the arguments to the main method of your Java application. |
-
-\* If you configure args while entrypoint is set to 'INHERIT', the configured args value will take precedence over the CMD propagated from the base image.
-
-</blockquote>
+> | Property | Type | Default | Description |
+> | --- | --- | --- | --- |
+> | `entrypoint` | `List<String>` | None | The command to start the container with (similar to Docker's `ENTRYPOINT` instruction). If set, then `jvmFlags`, `mainClass`, `extraClasspath`, and `expandClasspathDependencies` are ignored. You may also set `jib.container.entrypoint = 'INHERIT'` to indicate that the entrypoint and args should be inherited from the base image.* |
+> | `args` | `List<String>` | *None* | Additional program arguments appended to the command to start the container (similar to Docker's [CMD](https://docs.docker.com/engine/reference/builder/#cmd) instruction in relation with [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#entrypoint)). In the default case where you do not set a custom `entrypoint`, this parameter is effectively the arguments to the main method of your Java application. |
+>
+> \* If you configure args while entrypoint is set to 'INHERIT', the configured args value will take precedence over the CMD propagated from the base image.
 
 Jib originally used the ENTRYPOINT for the main portion of the java command, and used CMD for just additional arguments, so we should modify the entrypoint to keep consistent.
 
