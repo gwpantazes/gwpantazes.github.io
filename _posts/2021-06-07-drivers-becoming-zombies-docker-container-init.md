@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Drivers becoming Zombies - Container Init Process for Process Cleanup and Signal Handling
+title: Zombie Drivers and Adding a Container Init Process
 ---
 
-Tags/Keywords: #TIL #docker #kubernetes #container #selenium #linux #unix #process #jib
+**Tags/Keywords:** #TIL #docker #kubernetes #container #selenium #linux #unix #process #jib
 
 When writing an automated UI test suite with Selenium WebDriver, the number of processes usually isn't an issue. When running a test suite on a typical OS, the OS cleans up completed processes for us.
 
