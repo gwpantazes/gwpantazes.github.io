@@ -3,7 +3,7 @@ layout: post
 title: Zombie Drivers and Adding a Container Init Process
 ---
 
-![My helpful screenshot](/assets/zombiedriver/zombiedriverdark)
+![My helpful screenshot](/assets/images/zombiedriver/zombiedriverdark.png)
 
 **Tags/Keywords:** #TIL #docker #kubernetes #container #selenium #linux #unix #process #jib
 
