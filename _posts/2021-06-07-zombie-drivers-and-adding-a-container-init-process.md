@@ -3,6 +3,8 @@ layout: post
 title: Zombie Drivers and Adding a Container Init Process
 ---
 
+![My helpful screenshot](/assets/zombiedriver/zombiedriverdark)
+
 **Tags/Keywords:** #TIL #docker #kubernetes #container #selenium #linux #unix #process #jib
 
 When writing an automated UI test suite with Selenium WebDriver, the number of processes usually isn't an issue. When running a test suite on a typical OS, the OS cleans up completed processes for us.
